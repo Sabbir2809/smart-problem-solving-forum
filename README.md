@@ -9,3 +9,7 @@
 #### Server Packages:
 
 `npm i express nodemon mongoose cors dotenv bcryptjs jsonwebtoken`
+
+### Project Step by Step:
+
+1. Navbar Component Design
