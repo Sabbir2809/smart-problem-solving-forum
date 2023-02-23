@@ -29,7 +29,7 @@ const Navbar = () => {
         </form>
         {User === null ? (
           <Link to='/Auth' className='nav-item nav-links'>
-            Log In
+            Login
           </Link>
         ) : (
           <>
