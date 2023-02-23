@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Avatar from '../Avatar/Avatar';
 import logo from './../../assets/logo.png';
 import search from './../../assets/search.svg';
-import Avatar from './../../assets/avatar.png';
-import Button from './../../assets/logout.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -34,10 +33,12 @@ const Navbar = () => {
           </Link>
         ) : (
           <>
-            <Link to='/'>
-              <Avatar>S</Avatar>
-            </Link>
-            <Button>Log Out</Button>
+            <Avatar backgroundColor='#009dff' px='10px' py='7px' borderRadius='50%' color='white'>
+              <Link to='/User' style={{ color: 'white', textDecoration: 'none' }}>
+                S
+              </Link>
+            </Avatar>
+            <button className='nav-item nav-links'>Log Out</button>
           </>
         )}
       </div>
