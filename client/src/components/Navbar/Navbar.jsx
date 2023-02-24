@@ -2,19 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Avatar from '../Avatar/Avatar';
 import logo from './../../assets/logo.png';
-import search from './../../assets/search.svg';
+// import search from './../../assets/search.svg';
 import './Navbar.css';
 
 const Navbar = () => {
-  let User = null;
+  let User = 1;
 
   return (
-    <nav>
+    <nav className='main-nav'>
+      <h6>Smart Forum</h6>
       <div className='navbar'>
         <Link to='/' className='nav-item nav-logo'>
           <img src={logo} alt='Logo' />
         </Link>
-        <Link to='/about' className='nav-item nav-btn'>
+        {/* <Link to='/about' className='nav-item nav-btn'>
           About
         </Link>
         <Link to='/products' className='nav-item nav-btn'>
@@ -26,22 +27,22 @@ const Navbar = () => {
         <form>
           <input type='text' placeholder='Search...' />
           <img src={search} className='search-icon' width='18' alt='search' />
-        </form>
-        {User === null ? (
-          <Link to='/Auth' className='nav-item nav-links'>
-            Login
-          </Link>
-        ) : (
-          <>
-            <Avatar backgroundColor='#009dff' px='10px' py='7px' borderRadius='50%' color='white'>
-              <Link to='/User' style={{ color: 'white', textDecoration: 'none' }}>
-                S
-              </Link>
-            </Avatar>
-            <button className='nav-item nav-links'>Log Out</button>
-          </>
-        )}
+        </form> */}
       </div>
+      {User === null ? (
+        <Link to='/Auth' className='nav-item nav-links'>
+          Login
+        </Link>
+      ) : (
+        <>
+          <Avatar backgroundColor='#009dff' px='10px' py='7px' borderRadius='50%' color='white'>
+            <Link to='/User' style={{ color: 'white', textDecoration: 'none' }}>
+              S
+            </Link>
+          </Avatar>
+          <button className='nav-item nav-links'>Log Out</button>
+        </>
+      )}
     </nav>
   );
 };

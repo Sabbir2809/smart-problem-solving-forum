@@ -12,4 +12,6 @@
 
 ### Project Step by Step:
 
-1. Navbar Component Design
+1. Navbar
+1. Login & Sign In Auth
+1. Sidebar

@@ -4,7 +4,7 @@ const AboutAuth = () => {
   return (
     <div className='auth-container-1'>
       <h1>
-        Join the Smart Problem Solving Forum for <br /> DIU Engineering Students
+        Join the Smart Problem Solving Forum <br /> for DIU Engineering Students
       </h1>
       <p>✅ Filter questions according to their problem.</p>
       <p>✅ Encourage positive and effective discussion.</p>
