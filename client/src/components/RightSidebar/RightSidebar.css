@@ -26,10 +26,11 @@
 }
 
 .widget-tags-div p {
-  padding: 5px;
-  background-color: #e1ecf4;
-  color: #009dff;
+  padding: 4px;
+  background-color: #f5e9c3;
+  color: black;
   border-radius: 2px;
+  font-size: 13px;
 }
 .widget-tags-div p:hover {
   cursor: pointer;

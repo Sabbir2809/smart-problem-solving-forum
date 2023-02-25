@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './HomeMainBar.css';
 import QuestionsList from './Questions/QuestionsList';
+import './HomeMainBar.css';
 
 const HomeMainBar = () => {
   const questionsList = [
