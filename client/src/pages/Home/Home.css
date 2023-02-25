@@ -4,8 +4,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-left: 1px solid #d6d9dc;
-  border-left: 1px solid #d6d9dc;
+  /* border-left: 1px solid #d6d9dc; */
   margin: 0% auto;
 }
 .home-container-2 {
