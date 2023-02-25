@@ -18,7 +18,7 @@ const Navbar = () => {
           About
         </Link>
         <Link to='/products' className='nav-item nav-btn'>
-          Department
+          Departments
         </Link>
         <Link to='/teams' className='nav-item nav-btn'>
           For Teams

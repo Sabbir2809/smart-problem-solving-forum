@@ -7,7 +7,7 @@ const LeftSidebar = () => {
   return (
     <div className='left-sidebar'>
       <nav className='side-nav'>
-        <NavLink to='' className='side-nav-links' activeClass='active'>
+        <NavLink to='/' className='side-nav-links' activeClass='active'>
           <p>Home</p>
         </NavLink>
         <div className='side-nav-div'>

@@ -13,5 +13,12 @@
 ### Project Step by Step:
 
 1. Navbar
-1. Login & Sign In Auth
+1. Auth
+   - Login
+   - Sign In
 1. Sidebar
+   - LeftSidebar
+   - RightSidebar (Weight)
+   - HomeMainBar
+1. HomeMainBar
+   - Question
