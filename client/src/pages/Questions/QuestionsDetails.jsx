@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronDoubleUpIcon, ChevronDoubleDownIcon } from '@heroicons/react/24/solid';
 import Avatar from '../../components/Avatar/Avatar';
 import './Questions.css';
+import DisplayAnswer from './DisplayAnswer';
+import upVote from './../../assets/upVote.svg';
+import downVote from './../../assets/downVote.svg';
 
 const QuestionsDetails = () => {
   const { id } = useParams();
@@ -80,13 +82,13 @@ const QuestionsDetails = () => {
             .filter((question) => question._id === parseInt(id))
             .map((question) => (
               <div key={question._id}>
-                <section className='questions-details-container-1'>
+                <section className='question-details-container-1'>
                   <h1>{question.questionTitle}</h1>
                   <div className='question-details-container-2'>
                     <div className='question-votes'>
-                      <ChevronDoubleUpIcon width='18' />
+                      <img src={upVote} className='votes-icon' width='18' alt='up' />
                       <p>{question.upVotes - question.downVotes}</p>
-                      <ChevronDoubleDownIcon width='18' />
+                      <img src={downVote} className='votes-icon' width='18' alt='down' />
                     </div>
                     <div style={{ width: '100%' }}>
                       <p className='question-body'>{question.questionBody}</p>
@@ -95,7 +97,7 @@ const QuestionsDetails = () => {
                           <p key={tag}>{tag}</p>
                         ))}
                       </div>
-                      <div className='question-action-user'>
+                      <div className='question-actions-user'>
                         <div>
                           <button type='button'>Share</button>
                           <button type='button'>Delete</button>
@@ -119,8 +121,29 @@ const QuestionsDetails = () => {
                 {question.noOfAnswers !== 0 && (
                   <section>
                     <h3>{question.noOfAnswers} answers</h3>
+                    <DisplayAnswer key={question._id} question={question}></DisplayAnswer>
                   </section>
                 )}
+                <section className='post-ans-container'>
+                  <h3>Your Answer</h3>
+                  <form>
+                    <textarea name='' id='' cols='30' rows='10'></textarea>
+                    <br />
+                    <input type='submit' className='post-ans-btn' value='Post Your Answer' />
+                  </form>
+                  <p>
+                    Browse other Question tagged{' '}
+                    {question.questionTags.map((tag) => (
+                      <Link to='/Tags' key={tag} className='ans-tags'>
+                        {tag}
+                      </Link>
+                    ))}{' '}
+                    or{' '}
+                    <Link to='/AskQuestion' style={{ textDecoration: 'none', color: '#009dff' }}>
+                      ask your own question.
+                    </Link>
+                  </p>
+                </section>
               </div>
             ))}
         </>
