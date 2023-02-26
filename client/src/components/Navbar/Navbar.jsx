@@ -6,7 +6,7 @@ import search from './../../assets/search.svg';
 import './Navbar.css';
 
 const Navbar = () => {
-  let User = 1;
+  let User = null;
 
   return (
     <nav className='main-nav'>
@@ -14,15 +14,18 @@ const Navbar = () => {
         <Link to='/' className='nav-item nav-logo'>
           <img src={logo} alt='Logo' />
         </Link>
-        <Link to='/about' className='nav-item nav-btn'>
-          About
-        </Link>
-        <Link to='/products' className='nav-item nav-btn'>
+        <Link to='/departments' className='nav-item nav-btn'>
           Departments
         </Link>
         <Link to='/teams' className='nav-item nav-btn'>
-          For Teams
+          <Link to='/career' className='nav-item nav-btn'>
+            Career Path
+          </Link>
         </Link>
+        <Link to='/about' className='nav-item nav-btn'>
+          About
+        </Link>
+
         <form>
           <input type='text' placeholder='Search...' />
           <img src={search} className='search-icon' width='18' alt='search' />
