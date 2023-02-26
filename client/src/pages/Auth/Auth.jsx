@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import AboutAuth from './AboutAuth';
 import logo from './../../assets/logo.png';
 import './Auth.css';
-import AboutAuth from './AboutAuth';
 
 const Auth = () => {
+  // state: login logout
   const [isSignUp, setIsSignUp] = useState(false);
 
+  //
   const handleSwitch = () => {
     setIsSignUp(!isSignUp);
   };
 
   return (
     <section className='auth-section'>
+      {/* About Auth Component */}
       {isSignUp && <AboutAuth></AboutAuth>}
+      {/* Login * Sign In Page */}
       <div className='auth-container-2'>
         {!isSignUp && <img src={logo} alt='Smart Forum Logo' className='login-logo' />}
         <form>
@@ -38,10 +42,12 @@ const Auth = () => {
               </small>
             )}
           </label>
+          {/* Conditional Rendering */}
           <button type='Submit' className='auth-btn'>
             {isSignUp ? 'Sign Up' : 'Login'}
           </button>
         </form>
+        {/* Conditional Rendering */}
         <p>
           {isSignUp ? 'Already have an account? ' : `Don't have an account `}
           <button onClick={handleSwitch} type='button' className='handle-switch-btn'>

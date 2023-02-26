@@ -7,8 +7,10 @@ import upVote from './../../assets/upVote.svg';
 import downVote from './../../assets/downVote.svg';
 
 const QuestionsDetails = () => {
+  // hook
   const { id } = useParams();
 
+  // Fake data
   const questionsList = [
     {
       _id: 1,
@@ -74,6 +76,7 @@ const QuestionsDetails = () => {
 
   return (
     <div className='question-details-page'>
+      {/* Conditional Rendering */}
       {questionsList === null ? (
         <h1>Loading...</h1>
       ) : (
@@ -82,6 +85,7 @@ const QuestionsDetails = () => {
             .filter((question) => question._id === parseInt(id))
             .map((question) => (
               <div key={question._id}>
+                {/* Question Details Container */}
                 <section className='question-details-container-1'>
                   <h1>{question.questionTitle}</h1>
                   <div className='question-details-container-2'>
@@ -108,7 +112,7 @@ const QuestionsDetails = () => {
                             to={`/User/${question.userId}`}
                             className='user-link'
                             style={{ color: '#0086d8' }}>
-                            <Avatar backgroundColor='orange' px='8px' py='5px'>
+                            <Avatar backgroundColor='orange' color='white' px='8px' py='5px'>
                               {question.userPosted.charAt(0).toUpperCase()}
                             </Avatar>
                             <div>{question.userPosted}</div>
@@ -118,12 +122,15 @@ const QuestionsDetails = () => {
                     </div>
                   </div>
                 </section>
+                {/* Tags */}
                 {question.noOfAnswers !== 0 && (
                   <section>
                     <h3>{question.noOfAnswers} answers</h3>
+                    {/* Display Answer Component */}
                     <DisplayAnswer key={question._id} question={question}></DisplayAnswer>
                   </section>
                 )}
+                {/* Post Answer Container */}
                 <section className='post-ans-container'>
                   <h3>Your Answer</h3>
                   <form>

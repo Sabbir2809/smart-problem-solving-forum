@@ -6,13 +6,14 @@ const Questions = ({ question }) => {
   return (
     <div className='display-question-container'>
       <div className='display-votes-ans'>
-        <p>{question.votes}</p>
+        <p>{question.upVotes}</p>
         <p>votes</p>
       </div>
       <div className='display-votes-ans'>
         <p>{question.noOfAnswers}</p>
-        <p>answer</p>
+        <p>answers</p>
       </div>
+      {/* Question Details Container */}
       <div className='display-question-details'>
         <Link to={`/Questions/${question._id}`} className='question-title-link'>
           {question.questionTitle}

@@ -2,6 +2,7 @@ import React from 'react';
 import './RightSidebar.css';
 
 const WidgetTags = () => {
+  // Department Tags
   const tags = [
     'CSE',
     'SWE',

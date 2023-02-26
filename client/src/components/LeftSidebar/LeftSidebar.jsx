@@ -1,27 +1,32 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './LeftSidebar.css';
 import { UserIcon, TagIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/solid';
+import './LeftSidebar.css';
 
 const LeftSidebar = () => {
   return (
     <div className='left-sidebar'>
       <nav className='side-nav'>
+        {/* Home */}
         <NavLink to='/' className='side-nav-links' activeClass='active'>
           <p>Home</p>
         </NavLink>
+        {/* Forum Post sidebar */}
         <div className='side-nav-div'>
           <div className='forum-post'>
-            <p>Forum Post</p>
+            <p>FORUM POST</p>
           </div>
+          {/* Questions */}
           <NavLink to='/Questions' className=' tag-link  side-nav-links' activeClass='active'>
             <QuestionMarkCircleIcon style={{ width: '18px', color: '#FFC239' }} />
             <p className='q-tag'> Questions</p>
           </NavLink>
+          {/* Problem Tags */}
           <NavLink to='/Tags' className='tag-link side-nav-links' activeClass='active'>
             <TagIcon style={{ width: '18px', color: '#FFC239' }} />
             <p>Problem Tags</p>
           </NavLink>
+          {/* Users Profile */}
           <NavLink to='/Users' className='tag-link side-nav-links' activeClass='active'>
             <UserIcon style={{ width: '18px', color: '#FFC239' }} />
             <p> Users Profile</p>

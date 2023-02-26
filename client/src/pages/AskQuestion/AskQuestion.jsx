@@ -8,29 +8,22 @@ const AskQuestion = () => {
         <h1>Ask A Forum Question</h1>
         <form>
           <div className='ask-form-container'>
+            {/* Problem Title */}
             <label htmlFor='ask-question-title'>
               <h4>Title</h4>
-              <p>Be specific & imagine you're asking a question to another person</p>
-              <input
-                type='text'
-                placeholder='e.g is there are function for finding the index of an element in a vector?'
-                id='ask-question-title'
-              />
+              <p>Be Specific & Imagine you're asking a Problem to another Person</p>
+              <input type='text' placeholder='problem title' id='ask-question-title' />
             </label>
+            {/* Problem Body */}
             <label htmlFor='ask-question-body'>
               <h4>Body</h4>
-              <p>Be specific & imagine you're asking a question to another person</p>
-              <textarea
-                type='text'
-                placeholder='e.g is there are function for finding the index of an element in a vector?'
-                id='ask-question-body'
-                cols='30'
-                rows='10'
-              />
+              <p>Be Specific & Imagine you're asking a Problem to another Person</p>
+              <textarea type='text' placeholder='problem body' id='ask-question-body' cols='30' rows='10' />
             </label>
+            {/* Problem Tags */}
             <label htmlFor='ask-question-tags'>
               <h4>Tags</h4>
-              <p>Add up to 5 tags to describe what your question is about</p>
+              <p>Add up to 5 Tags to Describe what your Problem is About</p>
               <input type='text' placeholder='e.g cse swe eee' id='ask-question-tags' />
             </label>
           </div>

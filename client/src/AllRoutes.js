@@ -1,19 +1,24 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import AskQuestion from './pages/AskQuestion/AskQuestion';
-import Auth from './pages/Auth/Auth';
 import Home from './pages/Home/Home';
-import DisplayQuestion from './pages/Questions/DisplayQuestion';
+import Auth from './pages/Auth/Auth';
 import Questions from './pages/Questions/Questions';
+import DisplayQuestion from './pages/Questions/DisplayQuestion';
+import AskQuestion from './pages/AskQuestion/AskQuestion';
 
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/Auth' element={<Auth />} />
-      <Route path='/Questions' element={<Questions />} />
-      <Route path='/AskQuestion' element={<AskQuestion />} />
-      <Route path='/Questions/:id' element={<DisplayQuestion />} />
+      {/* Home Components */}
+      <Route path='/' element={<Home></Home>} />
+      {/* Login Logout Auth Component */}
+      <Route path='/Auth' element={<Auth></Auth>} />
+      {/* Questions Component */}
+      <Route path='/Questions' element={<Questions></Questions>} />
+      {/* Ask Question Component */}
+      <Route path='/AskQuestion' element={<AskQuestion></AskQuestion>} />
+      {/* Display Question Component */}
+      <Route path='/Questions/:id' element={<DisplayQuestion></DisplayQuestion>} />
     </Routes>
   );
 };

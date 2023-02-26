@@ -11,23 +11,27 @@ const Navbar = () => {
   return (
     <nav className='main-nav'>
       <div className='navbar'>
+        {/* Nav Items */}
         <Link to='/' className='nav-item nav-logo'>
           <img src={logo} alt='Logo' />
         </Link>
-        <Link to='/departments' className='nav-item nav-btn'>
+        <Link to='/Departments' className='nav-item nav-btn'>
           Departments
         </Link>
-        <Link to='/career' className='nav-item nav-btn'>
+        <Link to='/Career' className='nav-item nav-btn'>
           Career Path
         </Link>
-        <Link to='/about' className='nav-item nav-btn'>
+        <Link to='/About' className='nav-item nav-btn'>
           About
         </Link>
 
+        {/* Input Field */}
         <form>
           <input type='text' placeholder='Search...' />
           <img src={search} className='search-icon' width='18' alt='search' />
         </form>
+
+        {/* Conditional Rendering: For Login & Log out button */}
         {User === null ? (
           <Link to='/Auth' className='nav-item nav-links'>
             Login

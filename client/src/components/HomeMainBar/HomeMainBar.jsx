@@ -4,6 +4,7 @@ import QuestionsList from './QuestionsList';
 import './HomeMainBar.css';
 
 const HomeMainBar = () => {
+  // Fake Data
   const questionsList = [
     {
       _id: 1,
@@ -30,7 +31,7 @@ const HomeMainBar = () => {
       upVotes: 3,
       downVotes: 2,
       noOfAnswers: 0,
-      questionTitle: 'What is a Function?',
+      questionTitle: 'What is a Arrow Function?',
       questionBody: 'It Meant to be',
       questionTags: ['java', 'node js', 'react js', 'mongodb'],
       userPosted: 'Sabu',
@@ -50,7 +51,7 @@ const HomeMainBar = () => {
       upVotes: 3,
       downVotes: 1,
       noOfAnswers: 0,
-      questionTitle: 'What is a Function?',
+      questionTitle: 'What is a Dynamic Function?',
       questionBody: 'It Meant to be',
       questionTags: ['java', 'node js', 'react js', 'mongodb'],
       userPosted: 'Sabu',
@@ -67,10 +68,12 @@ const HomeMainBar = () => {
     },
   ];
 
+  // hooks
   const location = useLocation();
   const navigate = useNavigate();
   const user = 1;
 
+  // check User login & logout function
   const checkAuth = () => {
     if (user === null) {
       alert('Login or Sign Up to ask a question');
@@ -84,6 +87,7 @@ const HomeMainBar = () => {
     <div className='main-bar'>
       <div className='main-bar-header'>
         {location.pathname === '/' ? <h1>Top Questions</h1> : <h1>All Questions</h1>}
+        {/* Ask Question Button */}
         <button onClick={checkAuth} className='ask-btn'>
           Ask Question
         </button>
@@ -94,6 +98,7 @@ const HomeMainBar = () => {
         ) : (
           <>
             <p>{questionsList.length} questions</p>
+            {/* Question List Component */}
             <QuestionsList questionsList={questionsList}></QuestionsList>
           </>
         )}

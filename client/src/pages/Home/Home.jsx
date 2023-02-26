@@ -1,6 +1,6 @@
 import React from 'react';
-import HomeMainBar from '../../components/HomeMainBar/HomeMainBar';
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar';
+import HomeMainBar from '../../components/HomeMainBar/HomeMainBar';
 import RightSidebar from '../../components/RightSidebar/RightSidebar';
 import './Home.css';
 

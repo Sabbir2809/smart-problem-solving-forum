@@ -4,8 +4,9 @@ import Avatar from './../../components/Avatar/Avatar';
 
 const DisplayAnswer = ({ question }) => {
   return (
-    <div>
+    <>
       {question.answer.map((ans) => (
+        // Display Answer
         <div className='display-ans' key={ans._id}>
           <p>{ans.answerBody}</p>
           <div className='question-actions-user'>
@@ -16,7 +17,7 @@ const DisplayAnswer = ({ question }) => {
             <div>
               <p>answered {ans.answeredOn}</p>
               <Link to={`/User/${question.userId}`} className='user-link' style={{ color: '#0086d8' }}>
-                <Avatar backgroundColor='green' px='8px' py='5px'>
+                <Avatar backgroundColor='green' color='white' px='8px' py='5px'>
                   {ans.userAnswered.charAt(0).toUpperCase()}
                 </Avatar>
                 <div>{ans.userAnswered}</div>
@@ -25,7 +26,7 @@ const DisplayAnswer = ({ question }) => {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

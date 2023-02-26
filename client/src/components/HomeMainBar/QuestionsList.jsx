@@ -5,6 +5,7 @@ const QuestionsList = ({ questionsList }) => {
   return (
     <>
       {questionsList.map((question) => (
+        // Questions Component
         <Questions key={question._id} question={question}></Questions>
       ))}
     </>

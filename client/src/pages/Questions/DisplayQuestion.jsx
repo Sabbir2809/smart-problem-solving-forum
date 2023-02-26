@@ -8,6 +8,7 @@ const DisplayQuestion = () => {
     <div className='home-container-1'>
       <LeftSidebar></LeftSidebar>
       <div className='home-container-2'>
+        {/* Question Details Component */}
         <QuestionsDetails></QuestionsDetails>
         <RightSidebar></RightSidebar>
       </div>
