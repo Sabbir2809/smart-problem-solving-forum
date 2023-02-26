@@ -9,7 +9,7 @@ import Questions from './pages/Questions/Questions';
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route ptah='/' element={<Home />} />
+      <Route path='/' element={<Home />} />
       <Route path='/Auth' element={<Auth />} />
       <Route path='/Questions' element={<Questions />} />
       <Route path='/AskQuestion' element={<AskQuestion />} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import QuestionsList from './Questions/QuestionsList';
+import QuestionsList from './QuestionsList';
 import './HomeMainBar.css';
 
 const HomeMainBar = () => {

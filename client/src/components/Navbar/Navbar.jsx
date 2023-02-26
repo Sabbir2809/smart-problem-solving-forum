@@ -6,7 +6,7 @@ import search from './../../assets/search.svg';
 import './Navbar.css';
 
 const Navbar = () => {
-  let User = null;
+  let User = 1;
 
   return (
     <nav className='main-nav'>
@@ -17,10 +17,8 @@ const Navbar = () => {
         <Link to='/departments' className='nav-item nav-btn'>
           Departments
         </Link>
-        <Link to='/teams' className='nav-item nav-btn'>
-          <Link to='/career' className='nav-item nav-btn'>
-            Career Path
-          </Link>
+        <Link to='/career' className='nav-item nav-btn'>
+          Career Path
         </Link>
         <Link to='/about' className='nav-item nav-btn'>
           About
