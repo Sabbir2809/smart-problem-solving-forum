@@ -6,11 +6,7 @@
 
 `npm i axios jwt-decode moment react-copy-to-clipboard react-router-dom redux react-redux redux-thunk`
 
-#### Server Packages:
-
-`npm i express nodemon mongoose cors dotenv bcryptjs jsonwebtoken`
-
-### Project Step by Step:
+### Frontend:
 
 1. Navbar
 1. Auth
@@ -23,3 +19,22 @@
 1. HomeMainBar
    - Ask Question
    - Display Question
+
+#### Server Packages:
+
+`npm i express nodemon mongoose cors dotenv bcryptjs jsonwebtoken`
+
+### Backend:
+
+index.js -> users.js -> auth.js
+
+1. index.js File
+   - import express, mongoose, cors, dotenv
+   - middleware
+   - get root api
+   - import userRouter
+   - mongodb
+1. routes Folder
+   - user.js (import login, signup)
+1. controllers
+   - auth.js
