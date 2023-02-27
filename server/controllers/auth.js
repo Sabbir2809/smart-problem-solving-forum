@@ -8,7 +8,7 @@ export const signup = async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    // existing user
+    // find existing user email
     const existingUser = await users.findOne({ email });
 
     if (existingUser) {
@@ -16,7 +16,7 @@ export const signup = async (req, res) => {
     }
     // hash password
     const hashedPassword = await bcrypt.hash(password, 12);
-    // new user create
+    // create new user
     const newUser = await users.create({ name, email, password: hashedPassword });
     // json web token
     const token = jwt.sign({ email: newUser.email, id: newUser._id }, process.env.DB_USER, {
@@ -34,7 +34,7 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // existing user
+    // find existing user email
     const existingUser = await users.findOne({ email });
 
     if (!existingUser) {
@@ -48,7 +48,7 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: 'Invalid Credentials! ❌' });
     }
     // json web token
-    const token = jwt.sign({ email: newUser.email, id: newUser._id }, process.env.DB_USER, {
+    const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, process.env.DB_USER, {
       expiresIn: '1h',
     });
 

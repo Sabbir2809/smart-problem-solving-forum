@@ -6,7 +6,7 @@ import search from './../../assets/search.svg';
 import './Navbar.css';
 
 const Navbar = () => {
-  let User = 1;
+  let User = null;
 
   return (
     <nav className='main-nav'>
