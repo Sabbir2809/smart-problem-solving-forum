@@ -26,13 +26,13 @@
 
 ### Backend:
 
-index.js -> users.js -> auth.js
+(root)index.js -> (routes)users.js -> (controllers)auth.js
 
 1. index.js File
    - import express, mongoose, cors, dotenv
    - middleware
    - get root api
-   - import userRouter
+   - import userRouter(routes/users.js)
    - mongodb
 1. routes Folder
    - user.js (import login, signup)
