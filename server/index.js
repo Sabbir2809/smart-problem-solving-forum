@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 // Authentication logIn, signIn API
 app.use('/user', userRouters);
 
-// question API
+// ask question API
 app.use('/questions', questionRouters);
 
 // mongodb connection info
