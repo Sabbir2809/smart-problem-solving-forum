@@ -19,6 +19,10 @@
 1. HomeMainBar
    - Ask Question
    - Display Question
+1. Redux
+   - reducers Folder (Store Data)
+   - actions Folder (use to dispatch any update and modify particular data form reducer)
+   - root index.js file wrap `<Provider store={store}></Provider>`
 
 #### Server Packages:
 

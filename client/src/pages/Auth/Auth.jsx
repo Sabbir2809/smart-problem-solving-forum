@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import AboutAuth from './AboutAuth';
 import logo from './../../assets/logo.png';
 import './Auth.css';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { login, signup } from '../../actions/auth';
 
 const Auth = () => {
-  // state: login logout
+  // logIn signIn
   const [isSignUp, setIsSignUp] = useState(false);
+  //
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  //
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,18 +25,18 @@ const Auth = () => {
   // name, email, password in form
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (!email && !password) {
-      alert('Enter email & password🙏');
+      alert('🙏 Enter email & password');
     }
-    if (!isSignUp) {
+    if (isSignUp) {
       if (!name) {
         alert('Enter a name to continue ✳️');
       }
       dispatch(signup({ name, email, password }, navigate));
     } else {
-      dispatch(login({ name, email }, navigate));
+      dispatch(login({ email, password }, navigate));
     }
-    // console.log({ name, email, password });
   };
 
   return (
@@ -65,7 +65,6 @@ const Auth = () => {
               <h4>Password</h4>
               {!isSignUp && <p className='forget-pass'>forget password?</p>}
             </div>
-
             <input
               onChange={(event) => setPassword(event.target.value)}
               type='password'

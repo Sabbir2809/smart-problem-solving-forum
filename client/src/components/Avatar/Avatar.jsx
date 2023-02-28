@@ -12,7 +12,7 @@ const Avatar = ({ children, backgroundColor, px, py, padding, color, borderRadiu
     TextDecoration: 'none',
   };
 
-  return <di style={style}>{children}</di>;
+  return <div style={style}>{children}</div>;
 };
 
 export default Avatar;

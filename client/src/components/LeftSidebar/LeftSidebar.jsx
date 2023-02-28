@@ -8,7 +8,7 @@ const LeftSidebar = () => {
     <div className='left-sidebar'>
       <nav className='side-nav'>
         {/* Home */}
-        <NavLink to='/' className='side-nav-links' activeClass='active'>
+        <NavLink to='/' className='side-nav-links' activeclass='active'>
           <p>Home</p>
         </NavLink>
         {/* Forum Post sidebar */}
@@ -17,17 +17,17 @@ const LeftSidebar = () => {
             <p>FORUM POST</p>
           </div>
           {/* Questions */}
-          <NavLink to='/Questions' className=' tag-link  side-nav-links' activeClass='active'>
+          <NavLink to='/Questions' className=' tag-link  side-nav-links' activeclass='active'>
             <QuestionMarkCircleIcon style={{ width: '18px', color: '#FFC239' }} />
             <p className='q-tag'> Questions</p>
           </NavLink>
           {/* Problem Tags */}
-          <NavLink to='/Tags' className='tag-link side-nav-links' activeClass='active'>
+          <NavLink to='/Tags' className='tag-link side-nav-links' activeclass='active'>
             <TagIcon style={{ width: '18px', color: '#FFC239' }} />
             <p>Problem Tags</p>
           </NavLink>
           {/* Users Profile */}
-          <NavLink to='/Users' className='tag-link side-nav-links' activeClass='active'>
+          <NavLink to='/Users' className='tag-link side-nav-links' activeclass='active'>
             <UserIcon style={{ width: '18px', color: '#FFC239' }} />
             <p> Users Profile</p>
           </NavLink>
