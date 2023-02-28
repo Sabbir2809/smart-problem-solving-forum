@@ -40,5 +40,13 @@
    - mongodb
 1. routes Folder
    - user.js (import login, signup)
+   - questions.js
 1. controllers
+
    - auth.js
+   - questions.js
+
+   1. models
+
+   - userSchema
+   - questionSchema

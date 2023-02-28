@@ -4,7 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import userRouter from './routes/users.js';
+import userRouters from './routes/users.js';
+import questionRouters from './routes/questions.js';
 
 // port
 const port = process.env.PORT || 5000;
@@ -23,7 +24,10 @@ app.get('/', (req, res) => {
 });
 
 // Authentication logIn, signIn API
-app.use('/user', userRouter);
+app.use('/user', userRouters);
+
+// question API
+app.use('/questions', questionRouters);
 
 // mongodb connection info
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@smart-problem-solving-f.g9brbct.mongodb.net/?retryWrites=true&w=majority`;
