@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import './Questions.css';
 
 const Questions = ({ question }) => {
+  console.log(question);
   return (
     <div className='display-question-container'>
       <div className='display-votes-ans'>
-        <p>{question.upVotes}</p>
+        <p>{question.upVotes - question.downVotes || 0}</p>
         <p>votes</p>
       </div>
       <div className='display-votes-ans'>

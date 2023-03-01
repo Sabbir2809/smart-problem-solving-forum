@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './AskQuestion.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import askQuestion from '../../actions/question';
+import { askQuestion } from '../../actions/question';
 
 const AskQuestion = () => {
   const [questionTitle, setQuestionTitle] = useState();

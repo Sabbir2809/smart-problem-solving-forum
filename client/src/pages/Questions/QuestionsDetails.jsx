@@ -5,84 +5,22 @@ import './Questions.css';
 import DisplayAnswer from './DisplayAnswer';
 import upVote from './../../assets/upVote.svg';
 import downVote from './../../assets/downVote.svg';
+import { useSelector } from 'react-redux';
 
 const QuestionsDetails = () => {
   // hook
   const { id } = useParams();
-
-  // Fake data
-  const questionsList = [
-    {
-      _id: 1,
-      upVotes: 3,
-      downVotes: 3,
-      noOfAnswers: 2,
-      questionTitle: 'What is a Function?',
-      questionBody: 'It Meant to be',
-      questionTags: ['java', 'node js', 'react js', 'mongodb'],
-      userPosted: 'Sabu',
-      userId: 1,
-      askedOn: 'jan 1',
-      answer: [
-        {
-          answerBody: 'Answer',
-          userAnswered: 'Tahmid',
-          answeredOn: 'jan 2',
-          userId: 2,
-        },
-      ],
-    },
-    {
-      _id: 2,
-      upVotes: 3,
-      downVotes: 2,
-      noOfAnswers: 0,
-      questionTitle: 'What is a Function?',
-      questionBody: 'It Meant to be',
-      questionTags: ['java', 'node js', 'react js', 'mongodb'],
-      userPosted: 'Sabu',
-      userId: 1,
-      askedOn: 'jan 1',
-      answer: [
-        {
-          answerBody: 'Answer',
-          userAnswered: 'Tahmid',
-          answeredOn: 'jan 2',
-          userId: 2,
-        },
-      ],
-    },
-    {
-      _id: 3,
-      upVotes: 3,
-      downVotes: 1,
-      noOfAnswers: 0,
-      questionTitle: 'What is a Function?',
-      questionBody: 'It Meant to be',
-      questionTags: ['java', 'node js', 'react js', 'mongodb'],
-      userPosted: 'Sabu',
-      userId: 1,
-      askedOn: 'jan 1',
-      answer: [
-        {
-          answerBody: 'Answer',
-          userAnswered: 'Tahmid',
-          answeredOn: 'jan 2',
-          userId: 2,
-        },
-      ],
-    },
-  ];
+  const questionsList = useSelector((state) => state.questionsReducer);
 
   return (
     <div className='question-details-page'>
       {/* Conditional Rendering */}
-      {questionsList === null ? (
+      {questionsList?.data === null ? (
         <h1>Loading...</h1>
       ) : (
         <>
-          {questionsList
-            .filter((question) => question._id === parseInt(id))
+          {questionsList?.data
+            .filter((question) => question._id === id)
             .map((question) => (
               <div key={question._id}>
                 {/* Question Details Container */}
@@ -91,7 +29,7 @@ const QuestionsDetails = () => {
                   <div className='question-details-container-2'>
                     <div className='question-votes'>
                       <img src={upVote} className='votes-icon' width='18' alt='up' />
-                      <p>{question.upVotes - question.downVotes}</p>
+                      <p>{question.upVotes - question.downVotes || 0}</p>
                       <img src={downVote} className='votes-icon' width='18' alt='down' />
                     </div>
                     <div style={{ width: '100%' }}>
