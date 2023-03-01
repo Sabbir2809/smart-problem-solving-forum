@@ -12,3 +12,13 @@ export const askQuestion = async (req, res) => {
     res.status(209).json('Could not post a new Question');
   }
 };
+
+export const getAllQuestions = async (req, res) => {
+  try {
+    const questionList = await Questions.find();
+    res.status(200).json(questionList);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+    console.error(error);
+  }
+};
