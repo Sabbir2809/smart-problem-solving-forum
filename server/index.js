@@ -6,6 +6,7 @@ dotenv.config();
 
 import userRouters from './routes/users.js';
 import questionRouters from './routes/questions.js';
+import answerRouters from './routes/answers.js';
 
 // port
 const port = process.env.PORT || 5000;
@@ -25,9 +26,10 @@ app.get('/', (req, res) => {
 
 // Authentication logIn, signIn API
 app.use('/user', userRouters);
-
 // ask question API
 app.use('/questions', questionRouters);
+//
+app.use('/answer', answerRouters);
 
 // mongodb connection info
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@smart-problem-solving-f.g9brbct.mongodb.net/?retryWrites=true&w=majority`;
