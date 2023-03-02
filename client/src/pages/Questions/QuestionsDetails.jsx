@@ -1,16 +1,43 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Avatar from '../../components/Avatar/Avatar';
 import './Questions.css';
 import DisplayAnswer from './DisplayAnswer';
 import upVote from './../../assets/upVote.svg';
 import downVote from './../../assets/downVote.svg';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { postAnswer } from '../../actions/question';
 
 const QuestionsDetails = () => {
   // hook
   const { id } = useParams();
   const questionsList = useSelector((state) => state.questionsReducer);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const User = useSelector((state) => state.currentUserReducer);
+  const [answer, setAnswer] = useState('');
+
+  const handlePostAnswer = (e, answerLength) => {
+    e.preventDefault();
+    if (User === null) {
+      alert('Login or SignUp to answer a Question');
+      navigate('/Auth');
+    } else {
+      if (answer === '') {
+        alert('Enter an answer before submitting');
+      } else {
+        dispatch(
+          postAnswer({
+            id,
+            noOfAnswers: answerLength + 1,
+            answerBody: answer,
+            userAnswered: User.result.name,
+          })
+        );
+      }
+    }
+  };
 
   return (
     <div className='question-details-page'>
@@ -25,7 +52,7 @@ const QuestionsDetails = () => {
               <div key={question._id}>
                 {/* Question Details Container */}
                 <section className='question-details-container-1'>
-                  <h1>{question.questionTitle}</h1>
+                  <h2>{question.questionTitle}</h2>
                   <div className='question-details-container-2'>
                     <div className='question-votes'>
                       <img src={upVote} className='votes-icon' width='18' alt='up' />
@@ -63,7 +90,7 @@ const QuestionsDetails = () => {
                 {/* Tags */}
                 {question.noOfAnswers !== 0 && (
                   <section>
-                    <h3>{question.noOfAnswers} answers</h3>
+                    <h3>{question.noOfAnswers} Answers</h3>
                     {/* Display Answer Component */}
                     <DisplayAnswer key={question._id} question={question}></DisplayAnswer>
                   </section>
@@ -71,8 +98,16 @@ const QuestionsDetails = () => {
                 {/* Post Answer Container */}
                 <section className='post-ans-container'>
                   <h3>Your Answer</h3>
-                  <form>
-                    <textarea name='' id='' cols='30' rows='10'></textarea>
+                  <form
+                    onSubmit={(e) => {
+                      handlePostAnswer(e, question.answer.length);
+                    }}>
+                    <textarea
+                      onChange={(e) => setAnswer(e.target.value)}
+                      name=''
+                      id=''
+                      cols='30'
+                      rows='10'></textarea>
                     <br />
                     <input type='submit' className='post-ans-btn' value='Post Your Answer' />
                   </form>

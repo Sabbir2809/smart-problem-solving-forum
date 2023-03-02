@@ -13,7 +13,7 @@ export const postAnswer = async (req, res) => {
     const updatedQuestion = await Questions.findByIdAndUpdate(_id, {
       $addToSet: { answer: [{ answerBody, userAnswered, userId: req.userId }] },
     });
-    req.status(200).json(updatedQuestion);
+    res.status(200).json(updatedQuestion);
   } catch (error) {
     res.status(400).json(error);
     console.error(error);
