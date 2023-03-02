@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
 import Avatar from '../../components/Avatar/Avatar';
 import './Questions.css';
 import DisplayAnswer from './DisplayAnswer';
@@ -7,17 +7,23 @@ import upVote from './../../assets/upVote.svg';
 import downVote from './../../assets/downVote.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { postAnswer } from '../../actions/question';
+import moment from 'moment';
+import copy from 'copy-to-clipboard';
 
 const QuestionsDetails = () => {
   // hook
   const { id } = useParams();
   const questionsList = useSelector((state) => state.questionsReducer);
-
+  //
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const [answer, setAnswer] = useState('');
+  //
+  const location = useLocation();
+  const url = `http://localhost:3000`;
 
+  // post answer
   const handlePostAnswer = (e, answerLength) => {
     e.preventDefault();
     if (User === null) {
@@ -37,6 +43,12 @@ const QuestionsDetails = () => {
         );
       }
     }
+  };
+
+  // share
+  const handleShare = () => {
+    copy(url + location.pathname);
+    alert('Copied URL: ' + url + location.pathname);
   };
 
   return (
@@ -68,11 +80,13 @@ const QuestionsDetails = () => {
                       </div>
                       <div className='question-actions-user'>
                         <div>
-                          <button type='button'>Share</button>
+                          <button onClick={handleShare} type='button'>
+                            Share
+                          </button>
                           <button type='button'>Delete</button>
                         </div>
                         <div>
-                          <p>asked {question.askedOn}</p>
+                          <p>asked {moment(question.askedOn).fromNow()}</p>
                           <Link
                             to={`/User/${question.userId}`}
                             className='user-link'
@@ -92,7 +106,10 @@ const QuestionsDetails = () => {
                   <section>
                     <h3>{question.noOfAnswers} Answers</h3>
                     {/* Display Answer Component */}
-                    <DisplayAnswer key={question._id} question={question}></DisplayAnswer>
+                    <DisplayAnswer
+                      handleShare={handleShare}
+                      key={question._id}
+                      question={question}></DisplayAnswer>
                   </section>
                 )}
                 {/* Post Answer Container */}
