@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Avatar from '../Avatar/Avatar';
 import logo from './../../assets/logo.png';
 import search from './../../assets/search.svg';
@@ -11,9 +11,15 @@ const Navbar = () => {
   // current user
   let User = useSelector((state) => state.currentUserReducer);
 
-  console.log();
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // logout
+  const handleLogout = () => {
+    dispatch({ type: 'LOGOUT' });
+    navigate('/');
+    dispatch(setCurrentUser(null));
+  };
 
   useEffect(() => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))));
@@ -55,7 +61,9 @@ const Navbar = () => {
                 {User.result.name.toUpperCase()}
               </Link>
             </Avatar>
-            <button className='nav-item nav-links'>Log Out</button>
+            <button onClick={handleLogout} className='nav-item nav-links'>
+              Log Out
+            </button>
           </>
         )}
       </div>
