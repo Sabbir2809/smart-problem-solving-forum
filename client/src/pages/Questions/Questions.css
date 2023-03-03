@@ -133,3 +133,9 @@
   line-height: 18px;
   white-space: pre-line;
 }
+
+@media only screen and (max-width: 900px) {
+  .question-details-page {
+    width: calc(100%);
+  }
+}
