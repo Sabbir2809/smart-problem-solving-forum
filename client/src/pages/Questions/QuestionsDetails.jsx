@@ -6,7 +6,7 @@ import DisplayAnswer from './DisplayAnswer';
 import upVote from './../../assets/upVote.svg';
 import downVote from './../../assets/downVote.svg';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteQuestion, postAnswer } from '../../actions/question';
+import { deleteQuestion, postAnswer, voteQuestion } from '../../actions/question';
 import moment from 'moment';
 import copy from 'copy-to-clipboard';
 
@@ -57,6 +57,15 @@ const QuestionsDetails = () => {
     dispatch(deleteQuestion(id, navigate));
   };
 
+  // upVote & downVote
+  const handleUpVote = () => {
+    dispatch(voteQuestion(id, 'upVote', User.result._id));
+  };
+
+  const handleDownVote = () => {
+    dispatch(voteQuestion(id, 'downVote', User.result._id));
+  };
+
   return (
     <div className='question-details-page'>
       {/* Conditional Rendering */}
@@ -73,9 +82,23 @@ const QuestionsDetails = () => {
                   <h2>{question.questionTitle}</h2>
                   <div className='question-details-container-2'>
                     <div className='question-votes'>
-                      <img src={upVote} className='votes-icon' width='18' alt='up' />
-                      <p>{question.upVotes - question.downVotes || 0}</p>
-                      <img src={downVote} className='votes-icon' width='18' alt='down' />
+                      <img
+                        onClick={handleUpVote}
+                        src={upVote}
+                        activeclass='active'
+                        className='votes-icon'
+                        width='18'
+                        alt='up'
+                      />
+                      <p>{question.upVote.length - question.downVote.length}</p>
+                      <img
+                        onClick={handleDownVote}
+                        src={downVote}
+                        className='votes-icon'
+                        activeclass='active'
+                        width='18'
+                        alt='down'
+                      />
                     </div>
                     <div style={{ width: '100%' }}>
                       <p className='question-body'>{question.questionBody}</p>
