@@ -28,3 +28,9 @@
 .main-bar-header .ask-btn:hover {
   background-color: #0086d8;
 }
+
+@media only screen and (max-width: 900px) {
+  .main-bar {
+    width: calc(100%);
+  }
+}

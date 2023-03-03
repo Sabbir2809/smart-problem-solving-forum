@@ -119,12 +119,7 @@ const QuestionsDetails = () => {
                     onSubmit={(e) => {
                       handlePostAnswer(e, question.answer.length);
                     }}>
-                    <textarea
-                      onChange={(e) => setAnswer(e.target.value)}
-                      name=''
-                      id=''
-                      cols='30'
-                      rows='10'></textarea>
+                    <textarea onChange={(e) => setAnswer(e.target.value)} cols='30' rows='10'></textarea>
                     <br />
                     <input type='submit' className='post-ans-btn' value='Post Your Answer' />
                   </form>
