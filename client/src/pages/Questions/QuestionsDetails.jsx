@@ -6,7 +6,7 @@ import DisplayAnswer from './DisplayAnswer';
 import upVote from './../../assets/upVote.svg';
 import downVote from './../../assets/downVote.svg';
 import { useSelector, useDispatch } from 'react-redux';
-import { postAnswer } from '../../actions/question';
+import { deleteQuestion, postAnswer } from '../../actions/question';
 import moment from 'moment';
 import copy from 'copy-to-clipboard';
 
@@ -39,6 +39,7 @@ const QuestionsDetails = () => {
             noOfAnswers: answerLength + 1,
             answerBody: answer,
             userAnswered: User.result.name,
+            userId: User?.result?._id,
           })
         );
       }
@@ -49,6 +50,11 @@ const QuestionsDetails = () => {
   const handleShare = () => {
     copy(url + location.pathname);
     alert('Copied URL: ' + url + location.pathname);
+  };
+
+  // delete question
+  const handleDelete = () => {
+    dispatch(deleteQuestion(id, navigate));
   };
 
   return (
@@ -83,7 +89,11 @@ const QuestionsDetails = () => {
                           <button onClick={handleShare} type='button'>
                             Share
                           </button>
-                          <button type='button'>Delete</button>
+                          {User?.result?._id === question?.userId && (
+                            <button onClick={handleDelete} type='button'>
+                              Delete
+                            </button>
+                          )}
                         </div>
                         <div>
                           <p>asked {moment(question.askedOn).fromNow()}</p>
