@@ -17,3 +17,6 @@ export const postAnswer = (id, noOfAnswers, answerBody, userAnswered, userId) =>
   API.patch(`/answer/post/${id}`, { noOfAnswers, answerBody, userAnswered, userId });
 export const deleteAnswer = (id, answerId, noOfAnswers) =>
   API.patch(`/answer/delete/${id}`, { answerId, noOfAnswers });
+
+// all User information
+export const fetchAllUsers = () => API.get('/user/getAllUsers');

@@ -5,8 +5,6 @@ const router = express.Router();
 
 // answer
 router.patch('/post/:id', postAnswer);
-
-// delete answer
 router.patch('/delete/:id', deleteAnswer);
 
 export default router;
