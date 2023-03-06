@@ -19,6 +19,10 @@
 1. HomeMainBar
    - Ask Question
    - Display Question
+1. Tags
+   - Problem Tags
+1. Users
+   - User Profile
 1. Redux
    - reducers Folder (Store Data)
    - actions Folder (use to dispatch any update and modify particular data form reducer)
@@ -41,12 +45,12 @@
 1. routes Folder
    - user.js (import login, signup)
    - questions.js
+   - answers.js
 1. controllers
-
    - auth.js
    - questions.js
-
-   1. models
-
+   - answers.js
+   - users.js
+1. models
    - userSchema
    - questionSchema
