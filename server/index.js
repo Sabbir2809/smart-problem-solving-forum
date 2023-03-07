@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-dotenv.config();
 
 import userRouters from './routes/users.js';
 import questionRouters from './routes/questions.js';
@@ -13,6 +12,7 @@ const port = process.env.PORT || 5000;
 
 // express server
 const app = express();
+dotenv.config();
 
 // middleware
 app.use(express.json({ limit: '30mb', extended: true }));
