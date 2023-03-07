@@ -7,6 +7,7 @@ import DisplayQuestion from './pages/Questions/DisplayQuestion';
 import AskQuestion from './pages/AskQuestion/AskQuestion';
 import Tags from './pages/Tags/Tags';
 import Users from './pages/Users/Users';
+import UserProfile from './pages/UserProfile/UserProfile';
 
 const AllRoutes = () => {
   return (
@@ -15,16 +16,18 @@ const AllRoutes = () => {
       <Route path='/' element={<Home></Home>} />
       {/* Login Logout Auth Component */}
       <Route path='/Auth' element={<Auth></Auth>} />
-      {/* Questions Component */}
-      <Route path='/Questions' element={<Questions></Questions>} />
       {/* Ask Question Component */}
       <Route path='/AskQuestion' element={<AskQuestion></AskQuestion>} />
+      {/* Questions Component */}
+      <Route path='/Questions' element={<Questions></Questions>} />
       {/* Display Question Component */}
       <Route path='/Questions/:id' element={<DisplayQuestion></DisplayQuestion>} />
       {/* Tags */}
       <Route path='/Tags' element={<Tags></Tags>} />
-      {/* Users Profile */}
+      {/* Users */}
       <Route path='/Users' element={<Users></Users>} />
+      {/* Users Profile */}
+      <Route path='/Users/:id' element={<UserProfile></UserProfile>} />
     </Routes>
   );
 };
