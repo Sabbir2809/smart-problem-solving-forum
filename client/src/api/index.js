@@ -20,3 +20,6 @@ export const deleteAnswer = (id, answerId, noOfAnswers) =>
 
 // all User information
 export const fetchAllUsers = () => API.get('/user/getAllUsers');
+
+// updateProfile
+export const updateProfile = (id, updateData) => API.patch(`/user/update/${id}`, updateData);

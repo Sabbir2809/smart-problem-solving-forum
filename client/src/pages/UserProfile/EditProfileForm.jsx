@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateProfile } from '../../actions/users';
 
 const EditProfileForm = ({ currentUser, setSwitch }) => {
   const [name, setName] = useState(currentUser?.result.name);
   const [about, setAbout] = useState(currentUser?.result.about);
   const [tags, setTags] = useState('');
 
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (tags.length === 0) {
+      dispatch(updateProfile(currentUser?.result?._id, { name, about, tags: currentUser?.result?.tags }));
+    } else {
+      dispatch(updateProfile(currentUser?.result?._id, { name, about, tags }));
+    }
+    setSwitch(false);
+  };
+
   return (
     <div>
       <h2 className='edit-profile-title-1'>Edit Your Profile</h2>
       <h3 className='edit-profile-title-2'>Public Information</h3>
-      <form className='edit-profile-form'>
+      <form onSubmit={handleSubmit} className='edit-profile-form'>
         <label htmlFor='name'>
           <h3>Display Name</h3>
           <input onChange={(e) => setName(e.target.value)} type='text' id='name' value={name} />

@@ -7,9 +7,11 @@ const WidgetTags = () => {
     'CSE',
     'SWE',
     'EEE',
-    'CES',
+    'CIS',
+    'MCT',
+    'Architecture',
     'Civil',
-    'Physics',
+    'ICE',
     'Programming',
     'OOP',
     'Computer Fundamentals',
@@ -20,14 +22,6 @@ const WidgetTags = () => {
     'Data Structure',
     'Algorithms',
     'Computer Network',
-    'HTML',
-    'CSS',
-    'Bootstrap',
-    'JavaScript',
-    'React',
-    'Node',
-    'Express',
-    'MongoDB',
   ];
   return (
     <div className='widget-tags'>
