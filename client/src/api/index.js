@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'https://smart-problem-solving-forum.vercel.app' });
 
 // Authentication: logIn & signIn
 export const logIn = (authData) => API.post('/user/login', authData);

@@ -21,7 +21,7 @@ const QuestionsDetails = () => {
   const [answer, setAnswer] = useState('');
   //
   const location = useLocation();
-  const url = `http://localhost:3000`;
+  const url = `https://smart-problem-solving-forum.vercel.app`;
 
   // post answer
   const handlePostAnswer = (e, answerLength) => {
