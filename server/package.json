@@ -5,11 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "build": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "Sabbir Hossain",
+  "keywords": [
+    "Smart",
+    "Problem",
+    "Solving",
+    "Forum"
+  ],
+  "author": "Md. Sabbir Hossain",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
