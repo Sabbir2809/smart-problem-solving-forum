@@ -11,6 +11,8 @@ const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   //
   const [name, setName] = useState('');
+  const [department, setDepartment] = useState('');
+  const [topic, setTopic] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -49,10 +51,30 @@ const Auth = () => {
         <form onSubmit={handleSubmit}>
           {isSignUp && (
             // Name Field
-            <label htmlFor='name'>
-              <h4>Display Name</h4>
-              <input onChange={(event) => setName(event.target.value)} type='text' name='name' id='name' />
-            </label>
+            <>
+              <label htmlFor='name'>
+                <h4>Display Name</h4>
+                <input onChange={(event) => setName(event.target.value)} type='text' name='name' id='name' />
+              </label>
+              <label htmlFor='department'>
+                <h4>Which Department</h4>
+                <input
+                  onChange={(event) => setDepartment(event.target.value)}
+                  type='text'
+                  name='department'
+                  id='department'
+                />
+              </label>
+              <label htmlFor='topic'>
+                <h4>Interest Field</h4>
+                <input
+                  onChange={(event) => setTopic(event.target.value)}
+                  type='text'
+                  name='topic'
+                  id='topic'
+                />
+              </label>
+            </>
           )}
           {/* Email Field */}
           <label htmlFor='email'>
